@@ -1,5 +1,6 @@
-name: First Workflow
-on: [push]
+name: First Workflow  # Это название будет отображаться на вкладке Actions
+
+on: push
 
 jobs:
   run-first-command:
@@ -7,3 +8,4 @@ jobs:
     steps:
       - name: Display some Text
         run: echo "Some Text"
+      - name: Command in Multiline
