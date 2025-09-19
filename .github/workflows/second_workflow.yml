@@ -1,0 +1,15 @@
+name: Second Workflow  # Это название будет отображаться на вкладке Actions
+
+on: push
+# on: push
+
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display some Text
+        run: echo "Some Text"
+      - name: Command in Multiline
+        run: |
+          node -v
+          npm -v
