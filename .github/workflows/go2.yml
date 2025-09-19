@@ -1,0 +1,29 @@
+name: Go
+
+on:
+  push:
+    branches: ['new_workflow']  # Запускать только при пуше в ветку new_workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'      # Ярко укажи версию Go
+
+      - name: Build
+        run: go build -v ./...
+
+  tests:
+    needs: build                 # Запускать после успешного выполнения build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+
+      - name: Test
+        run: go test -v ./...
