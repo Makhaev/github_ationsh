@@ -1,6 +1,7 @@
 name: First Workflow  # Это название будет отображаться на вкладке Actions
 
-on: push
+on: workflow_dispatch
+# on: push
 
 jobs:
   run-first-command:
